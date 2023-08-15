@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const BreadCrumbs = ({ data }) => {
-    return 
+    return (
     <div className="flex items-center py-4 overflow-x-auto whitespace-nowrap">
         {data.map((item, index) => (
             <div className="text-black opacity-50 text-xs ">
@@ -11,6 +11,8 @@ const BreadCrumbs = ({ data }) => {
                 </div>
         ))}
     </div>
+    );
 };
+
 
 export default BreadCrumbs;
