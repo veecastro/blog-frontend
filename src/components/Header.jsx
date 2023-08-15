@@ -14,7 +14,7 @@ const navItemsInfo = [
   {
     name: "Accessories",
     type: "dropdown",
-    items: [ "Jewelry","Bags"],
+    items: [ "Jewelry", "Bags"],
   },
   { name: "Shoes", type: "link" },
 ];
@@ -35,14 +35,14 @@ const NavItem = ({ item }) => {
           <a href="/" className="px-4 py-2">
             {item.name}
           </a>
-          <span className="cursor-pointer text-blue-500 absolute transition-all duration-500 font-bold right-0 top-0 group-hover:right-[90%] opacity-0 group-hover:opacity-100">
+          <span className="cursor-pointer text-gray-500 absolute transition-all duration-500 font-bold right-0 top-0 group-hover:right-[90%] opacity-0 group-hover:opacity-100">
             /
           </span>
         </>
       ) : (
         <div className="flex flex-col items-center">
           <button
-            className="px-4 py-2 flex gap-x-1 items-center text-white"
+            className="px-4 py-2 flex gap-x-1 items-cente text-white lg:text-dark-soft transition-all duration-300"
             onClick={toggleDropdownHandler}
           >
             <span>{item.name}</span>
@@ -128,7 +128,7 @@ const Header = () => {
               <div className="relative group">
                 <div className="flex flex-col items-center">
                   <button
-                    className="flex gap-x-1 items-center mt-5 lg:mt-0 border-2 border-blue-500 px-6 py-2 rounded-full text-blue-500 font-semibold hover:bg-blue-500 hover:text-white transition-all duration-300"
+                    className="flex gap-x-1 items-center mt-5 lg:mt-0 border-2 border-gray-500 px-6 py-2 rounded-full text-graye-500 font-semibold hover:bg-gray-500 hover:text-white transition-all duration-300"
                     onClick={() => setProfileDropdown(!profileDropdown)}
                   >
                     <span>ACCOUNT</span>
