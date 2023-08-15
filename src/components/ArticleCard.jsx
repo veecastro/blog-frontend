@@ -2,7 +2,7 @@ import React from "react";
 import { images } from "../constants";
 import { Link } from "react-router-dom";
 
-const ArticleCard = ({ post, slug, className }) => {
+const ArticleCard = ({ slug, className }) => {
   
 
   return (
@@ -10,8 +10,6 @@ const ArticleCard = ({ post, slug, className }) => {
     <div
       className={`overflow-hidden ${className} w-full lg-w-[calc(50%-20Px)] xl:w-[calc(33.333333%-20px)] 2xl:w-[calc(25%-20px)] x1:w-[calc(33.33%-21px)]`}
     >
-    
-    {/* <div className="flex items-center justify-center"> */}
         <img
           src={images.samplePostImage}
           alt="title"
@@ -50,7 +48,7 @@ const ArticleCard = ({ post, slug, className }) => {
       </div>
     </div>
     </div>
-    // </div>
+    
 
 
 
