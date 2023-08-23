@@ -10,13 +10,16 @@ import { logout } from "../store/actions/user";
 
 //creating this const to make it easier to add more nav items w/o having to add more code
 const navItemsInfo = [
-  { name: "Clothing", type: "link" },
+  { name: "Clothing", type: "link", href: "/clothing" },
+  { name: "Shoes", type: "link", href: "/shoes" },
   {
     name: "Accessories",
     type: "dropdown",
-    items: [ "Jewelry", "Bags"],
+    items: [ 
+      { title: "Jewelry", type: "link", href: "/jewelry" },
+      { title: "Bags", type: "link", href: "/bags" },
+    ],
   },
-  { name: "Shoes", type: "link" },
 ];
 
 const NavItem = ({ item }) => {
@@ -32,17 +35,15 @@ const NavItem = ({ item }) => {
     <li className="relative-group">
       {item.type === "link" ? (
         <>
-          <a href="/" className="px-4 py-2">
+          <Link to={item.href} className=" px-4 py-2">
             {item.name}
-          </a>
-          <span className="cursor-pointer text-gray-500 absolute transition-all duration-500 font-bold right-0 top-0 group-hover:right-[90%] opacity-0 group-hover:opacity-100">
-            /
-          </span>
+          </Link>
+          <span className="cursor-pointer text-gray-500 absolute transition-all duration-500 font-bold right-0 top-0 group-hover:right-[90%] opacity-0 group-hover:opacity-100">/</span>
         </>
       ) : (
         <div className="flex flex-col items-center">
           <button
-            className="px-4 py-2 flex gap-x-1 items-cente text-white lg:text-dark-soft transition-all duration-300"
+            className="px-4 py-2 flex gap-x-1 items-center"
             onClick={toggleDropdownHandler}
           >
             <span>{item.name}</span>
@@ -53,14 +54,15 @@ const NavItem = ({ item }) => {
               dropdown ? "block" : "hidden"
             } lg:hidden transition-all duration-500 pt-4 lg:absolute lg:bottom-0 lg:right-0 lg:transform lg:translate-y-full lg:group-hover:block w-max`}
           >
-            <ul className="flex flex-col shadow-lg rounded-lg overflow-hidden">
-              {item.items.map((accessories) => (
-                <a
-                  href="/"
-                  className="hover:bg-dark-hard hover:text-white px-4 py-2 text-white lg:text-dark-soft transition-all duration-300"
+            <ul className="bg-dark-soft lg:bg-transparent text-center flex flex-col shadow-lg rounded-lg overflow-hidden">
+              {item.items.map((page, index) => (
+                <Link
+                  key={index}
+                  to={page.href}
+                  className="hover:bg-dark-hard hover:text-white px-4 py-2 text-white lg:text-dark-soft"
                 >
-                  {accessories}
-                </a>
+                  {page.title}
+                </Link>
               ))}
             </ul>
           </div>
@@ -96,13 +98,13 @@ const Header = () => {
   };
 
   return (
-    <section>
+    <section className="sticky top-0 left-0 right-0 z-50 bg-white">
       <header className="container mx-auto px-5 flex justify-between py-4 items-center">
-        <div>
+       
           <Link to="/">
             <img className="w-full" src={images.Logo} alt="Logo" />
           </Link>
-        </div>
+        
         <div className="lg:hidden z-50">
           {navIsVisible ? (
             <IoCloseOutline
@@ -131,7 +133,7 @@ const Header = () => {
                     className="flex gap-x-1 items-center mt-5 lg:mt-0 border-2 border-gray-500 px-6 py-2 rounded-full text-graye-500 font-semibold hover:bg-gray-500 hover:text-white transition-all duration-300"
                     onClick={() => setProfileDropdown(!profileDropdown)}
                   >
-                    <span>ACCOUNT</span>
+                    <span>account</span>
                     <MdKeyboardArrowDown />
                   </button>
 
@@ -141,10 +143,10 @@ const Header = () => {
                     } lg:hidden transition-all duration-500 pt-4 lg:absolute lg:bottom-0 lg:right-0 lg:transform lg:translate-y-full lg:group-hover:block w-max`}
                   >
                     <ul className="bg-dark-soft lg:bg-transparent text-center flex flex-col shadow-lg rounded-lg overflow-hidden">
-                      {userState?.userInfo?.isAdmin && (
+                      {userState?.userInfo?.admin && (
                         <button
                           onClick={() => navigate("/admin")}
-                          type="button" className="hover:bg-dark-hard hover:text-white px-4 py-2"
+                          type="button" className="hover:bg-dark-hard hover:text-white px-4 py-2 text-white lg:"
                          
                         >
                           Admin Dashboard
@@ -172,7 +174,7 @@ const Header = () => {
           ) : (
             <button
               onClick={() => navigate("/login")}
-              className="hover:bg-dark-hard hover:text-white px-4 py-2 text-white lg:text-dark-soft transition-all duration-300"
+              className="mt-5 lg:mt-0 hover:bg-dark-hard hover:text-white px-4 py-2 text-white lg:text-dark-soft transition-all duration-300"
             >
               sign in
             </button>

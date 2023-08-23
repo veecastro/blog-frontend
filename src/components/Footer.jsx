@@ -1,9 +1,9 @@
 import React from "react";
 import { images } from "../constants"
-import { CiInstagram } from "react-icons/ci";
+
 import { CiLinkedin } from "react-icons/ci";
-import { CiFacebook } from "react-icons/ci";
-import { AiOutlineHeart } from "react-icons/ai";
+
+import { AiFillHeart } from "react-icons/ai";
 
 
 const Footer = () => {
@@ -34,21 +34,13 @@ const Footer = () => {
                     <img src={images.Logo} alt="logo" className="rounded w-20 h-auto" />
                     <p className="text-gray-200 text-center font-thin">Fashion Influencer Looks</p>
                     <ul className="flex justify-center items-center mt-5 space-x-4 text-gray-300">
-                        <li>
-                            <a href="/">
-                                <CiInstagram className="w-6 h-auto" />
-                            </a>
-                        </li>
+                     
                         <li>
                             <a href="/">
                                 <CiLinkedin className="w-6 h-auto" />
                             </a>
                         </li>
-                        <li>
-                            <a href="/">
-                                <CiFacebook className="w-6 h-auto"/>
-                            </a>
-                        </li>
+                    
                         
 
                                 
@@ -57,11 +49,11 @@ const Footer = () => {
                 </div>
                 <div className="hidden md-flex flex-col items-center space-y-4 md:col-span-12 lg:col-span-10">
                     <div className="bg-primary text-white p-3 rounded-full"></div>
-                <AiOutlineHeart className="w-7 h-auto object-center" />
+                    <AiFillHeart className="w-7 h-auto" />
 
                 </div>
                 <div>
-                    <p className="font-thin italic text-primary text-center">Copyright 2023</p>
+                    <p className="font-thin italic text-primary text-center">Copyright © 2023</p>
                 </div>
         </footer>
        </section>

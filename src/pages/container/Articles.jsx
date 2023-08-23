@@ -1,19 +1,6 @@
 import React from "react";
 import ArticleCard from "../../components/ArticleCard";
 
-const articleData = [
-    {
-        _id: 1,
-        title: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-        caption: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-        createdAt: "2021-06-12T18:30:00.000Z",
-        user: {
-            _id: 1,
-            name: "John Doe",
-        },
-    },
-    
-];
 
 
 
@@ -21,13 +8,14 @@ const articleData = [
 
 const Articles = () => {
     return (
-        <div className="container mx-auto px-5 py-10">
-            <div className="w-full flex flex-wrap md:gap-x-5 gap-y-5">
-                {articleData.map((article) => (
-                    <ArticleCard key={article._id} article={article} />
-                ))}
-            </div>
-        </div>
+   <section className="container mx-auto flex flex-wrap md:gap-x-5 gap-y-5 px-5 py-10">
+    <ArticleCard className="w-full md:w-[calc(50%-20px)] lg:w-[calc(33.33%-21px)]"/>
+    <ArticleCard className="w-full md:w-[calc(50%-20px)] lg:w-[calc(33.33%-21px)]"/>
+    <ArticleCard className="w-full md:w-[calc(50%-20px)] lg:w-[calc(33.33%-21px)]"/>
+    
+   
+   
+   </section>
     );
 };
 

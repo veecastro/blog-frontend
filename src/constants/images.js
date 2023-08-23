@@ -6,6 +6,7 @@ import floralBlouse from '../assets/floralBlouse.jpeg';
 import heeledMule from '../assets/heeledMule.jpeg';
 import miniCityBag from '../assets/miniCityBag.jpeg';
 import longAsymmetrical from '../assets/longAsymmetrical.jpeg';
+import background from '../assets/background.jpg';
 
 
 
@@ -19,6 +20,7 @@ const images = {
     heeledMule,
     miniCityBag,
     longAsymmetrical,
+    background
 
 
 };
